@@ -17,14 +17,14 @@ while Docker and Docker Swarm are useful tools in building images and running th
 Lets delve into these limitations and how they impact microservices in production.
 
 # Inadequate service discovery and load balancing for microservices:
-In microservices architecture, services need to discover and communicate with each other dynamically.Service discovery and load balancing are fundamental features to ensure that services can scale and communicate effectively.
+***In microservices architecture, services need to discover and communicate with each other dynamically.Service discovery and load balancing are fundamental features to ensure that services can scale and communicate effectively.***
 
 **Docker (standalone):** Docker doesnt provide built-in service discovery or DNS resolution between containers.For microservices, we would need to implement our own service discovery mechanism using external tools. 
 
 **Docker Swarm:** Swarm offers basic service discovery by providing an internal DNS mechanism for services. However, the DNS-based load balancing is simplistic and doesn’t support advanced features like circuit breaking, retry logic, or intelligent routing based on health status or performance metrics. For complex microservices interactions (e.g., A/B testing, canary deployments), this lack of advanced routing and load balancing is a limitation. In contrast, Kubernetes uses a more sophisticated service discovery and load balancing mechanism, often integrated with service meshes like Istio.
 
 **Before Istio/Kubernetes:**
-To make your microservices reliable, you used tools like the Netflix OSS stack (e.g., Eureka for service discovery, Ribbon for load balancing, Hystrix for circuit breaking, etc.). These features had to be coded directly into your applications. That means developers had to write extra code to make sure services could find each other, balance traffic, retry failed requests, and handle errors.
+***To make your microservices reliable, you used tools like the Netflix OSS stack (e.g., Eureka for service discovery, Ribbon for load balancing, Hystrix for circuit breaking, etc.). These features had to be coded directly into your applications. That means developers had to write extra code to make sure services could find each other, balance traffic, retry failed requests, and handle errors.***
 
 **With Istio and Kubernetes:**
 Now, with Kubernetes and Istio, these responsibilities are handled outside your application code. Here’s how it works:
