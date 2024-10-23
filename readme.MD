@@ -6,9 +6,9 @@
     
 Any technology or tool is developed to address the issues with existing technologies. Kubernetes addresses many issues with microservices architecture out of the box, such as scaling, load balancing, service discovery, resource management, and deployments
 
-***Before understanding what Kubernetes is, it's important to first recognize the drawbacks of using Docker standalone or Docker Swarm***
+***Before understanding what Kubernetes is, it's important to first recognize the drawbacks of using Docker Swarm***
 
-**Drawbacks of using docker/docker swarm in production grade microservices applications**
+**Drawbacks of using docker swarm in production grade microservices applications**
 ====
 
 ***Running large-scale, complex microservices architecture in production requires sophiticated orchestration, networking, monitoring and resource management capabilities.
