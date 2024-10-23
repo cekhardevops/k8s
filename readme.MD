@@ -24,24 +24,24 @@ Lets delve into these limitations and how they impact microservices in productio
 **Docker Swarm:** Swarm offers basic service discovery by providing an internal DNS mechanism for services. However, the DNS-based load balancing is simplistic and doesn’t support advanced features like circuit breaking, retry logic, or intelligent routing based on health status or performance metrics. For complex microservices interactions (e.g., A/B testing, canary deployments), this lack of advanced routing and load balancing is a limitation. In contrast, Kubernetes uses a more sophisticated service discovery and load balancing mechanism, often integrated with service meshes like Istio.
 
 **Before Istio/Kubernetes:**
-***To make your microservices reliable, you used tools like the Netflix OSS stack (e.g., Eureka for service discovery, Ribbon for load balancing, Hystrix for circuit breaking, etc.). These features had to be coded directly into your applications. That means developers had to write extra code to make sure services could find each other, balance traffic, retry failed requests, and handle errors.***
+***To make microservices reliable, tools or libraries are used like the Netflix OSS stack (e.g., Eureka for service discovery, Ribbon for load balancing, Hystrix for circuit breaking, etc.). These features had to be coded directly into our applications. That means developers had to write extra code to make sure services could find each other, balance traffic, retry failed requests, and handle errors.***
 
 **With Istio and Kubernetes:**
-Now, with Kubernetes and Istio, these responsibilities are handled outside your application code. Here’s how it works:
+Now, with Kubernetes and Istio, these responsibilities are handled outside the application code. Here’s how it works:
 
-**Service Discovery:** Instead of writing code to make services find each other (like with Eureka), Kubernetes automatically knows where your services are and routes requests to them.
+**Service Discovery:** Instead of writing code to make services find each other (like with Eureka), Kubernetes automatically knows where our services are and routes requests to them.
 
-**Load Balancing:** Kubernetes handles spreading the traffic evenly between multiple instances of your service, so you don’t need something like Ribbon.
+**Load Balancing:** Kubernetes handles spreading the traffic evenly between multiple instances of our service, so we don’t need something like Ribbon.
 
-**Circuit Breaking:** If a service is having trouble (e.g., it’s slow or crashing), Istio can stop sending requests to that service for a while (similar to what Hystrix did). This way, failing services don’t affect the rest of your system.
+**Circuit Breaking:** If a service is having trouble (e.g., it’s slow or crashing), Istio can stop sending requests to that service for a while (similar to what Hystrix did). This way, failing services don’t affect the rest of our system.
 
-**Retry Logic:** Istio can automatically retry failed requests without your application needing to handle it. For example, if a service is temporarily down, Istio will try again after a short wait.
+**Retry Logic:** Istio can automatically retry failed requests without our application needing to handle it. For example, if a service is temporarily down, Istio will try again after a short wait.
 
-**Intelligent Routing:** Based on health checks or performance metrics (like response time), Istio can decide to route traffic to the healthiest instances of your service. So, instead of making these decisions in your code, Istio handles it.
+**Intelligent Routing:** Based on health checks or performance metrics (like response time), Istio can decide to route traffic to the healthiest instances of our service. So, instead of making these decisions in our code, Istio handles it.
 
 **In Simple Words:**
 
-***With Istio and Kubernetes, you no longer have to write extra code to manage things like how services find each other, handle traffic, or deal with failures. These tools automatically take care of all that for you. This means less complex code for developers to maintain and more reliable microservices without extra effort.***
+***With Istio and Kubernetes, we no longer have to write extra code to manage things like how services find each other, handle traffic, or deal with failures. These tools automatically take care of all that for us. This means less complex code for developers to maintain and more reliable microservices without extra effort.***
 
 
 
@@ -51,7 +51,7 @@ Now, with Kubernetes and Istio, these responsibilities are handled outside your 
 
 **Docker (Standalone):** Docker doesn’t provide any form of autoscaling. Each container must be manually scaled by running additional instances, which is not feasible in a production environment with multiple microservices that have fluctuating traffic.
 
-**Docker Swarm:** Swarm allows for manual scaling of services (you can scale up a service by specifying the number of replicas). However, it doesn’t support horizontal pod autoscaling based on CPU, memory usage, or custom metrics, which is crucial for microservices. Kubernetes, on the other hand, provides Horizontal Pod Autoscaler (HPA), allowing microservices to scale automatically based on predefined metrics, such as CPU usage or custom application metrics. This dynamic scaling is essential for optimizing resource utilization and handling spikes in demand.
+**Docker Swarm:** Swarm allows for manual scaling of services (we can scale up a service by specifying the number of replicas). However, it doesn’t support horizontal pod autoscaling based on CPU, memory usage, or custom metrics, which is crucial for microservices. Kubernetes, on the other hand, provides Horizontal Pod Autoscaler (HPA), allowing microservices to scale automatically based on predefined metrics, such as CPU usage or custom application metrics. This dynamic scaling is essential for optimizing resource utilization and handling spikes in demand.
 
 # Resource Management and Isolation
 
@@ -89,7 +89,7 @@ Now, with Kubernetes and Istio, these responsibilities are handled outside your 
 
 **Docker (Standalone):** Docker has limited support for persistent storage and stateful workloads. Managing persistent volumes and ensuring that state is maintained across container restarts or failures is largely a manual process.
 
-**Docker Swarm:** Swarm offers basic support for persistent volumes, but it doesn’t provide advanced storage management features like dynamic provisioning, stateful sets, or replication of state across multiple nodes. In a production microservices architecture, you often need dynamic storage provisioning, backup mechanisms, and failover strategies for stateful services. Kubernetes handles these scenarios with StatefulSets and Persistent Volumes, allowing for automatic recovery and replication of stateful workloads across nodes.
+**Docker Swarm:** Swarm offers basic support for persistent volumes, but it doesn’t provide advanced storage management features like dynamic provisioning, stateful sets, or replication of state across multiple nodes. In a production microservices architecture, we often need dynamic storage provisioning, backup mechanisms, and failover strategies for stateful services. Kubernetes handles these scenarios with StatefulSets and Persistent Volumes, allowing for automatic recovery and replication of stateful workloads across nodes.
 
 # Security Limitations
 
