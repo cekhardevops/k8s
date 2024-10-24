@@ -1,8 +1,10 @@
 # k8s:
 
+![Alt text](k8s.drawio.svg)
+
 **what is kubernetes**
 
-**why kubernetes? what are the befinifits we will get out of it? What issues does it address in terms of deploying microservices architecture using Docker Swarm?**
+**why kubernetes? what are the benifits we will get out of it? What issues does it address in terms of deploying microservices architecture using Docker Swarm?**
     
 Any technology or tool is developed to address the issues with existing technologies. Kubernetes addresses many issues with microservices architecture out of the box, such as scaling, load balancing, service discovery, resource management, and deployments
 
